@@ -26,11 +26,6 @@ export default{
         }
     }
 }
-    /*
-    
-    methods{
-    modifyStats method if + or -
-    }*/
 </script>
 
 <template>
