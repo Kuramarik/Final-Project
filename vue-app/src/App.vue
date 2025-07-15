@@ -1,11 +1,13 @@
 <script>
 import ExampleComponent from './components/ExampleComponent.vue'
 import Character from './components/Character.vue'
+import Mission from './components/Mission.vue'
 
 export default {
   components: {
     ExampleComponent,
-    Character
+    Character,
+    Mission
   },
   data() {
     return {
@@ -33,6 +35,7 @@ export default {
   <main>
     <ExampleComponent :paragraph="content"/>
     <Character />
+    <Mission />
   </main>
 
   <footer>
