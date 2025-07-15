@@ -1,9 +1,11 @@
 <script>
 import ExampleComponent from './components/ExampleComponent.vue'
+import Character from './components/Character.vue'
 
 export default {
   components: {
-    ExampleComponent
+    ExampleComponent,
+    Character
   },
   data() {
     return {
@@ -30,6 +32,7 @@ export default {
 
   <main>
     <ExampleComponent :paragraph="content"/>
+    <Character />
   </main>
 
   <footer>
