@@ -18,9 +18,9 @@ export default{
    methods: {
     startMission(){
         let timeSinceEncounter =0;
-        while(this.progress<this.length){
+        /*while(this.progress<this.length){
             setTimeout(()=>{
-                this.progress++
+                this.progress+=1
                 console.log(this.progress)
             }, 1000)
             if(timeSinceEncounter>5){
@@ -30,11 +30,11 @@ export default{
                 }
             }
             timeSinceEncounter++;
-        }
+        }*/
     },
-    triggerEncounter(){
+    /*triggerEncounter(){
         console.log("enemy encounter")
-    }
+    }*/
    }
 }
 </script>
