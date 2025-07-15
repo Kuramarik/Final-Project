@@ -1,17 +1,6 @@
-# AIC Vue Template
-## A starter template for a Vue.js project using the Options API
-
-Clone this repository for a new Vue project with Single File Components (.vue files). These require a build step, so make sure you are running on a Node.js environment.
-
-Open VS Code's integrated terminal in the `vue-app` folder. (Easiest to just right-click on the folder and select "Open in Integrated Terminal".) Then enter the following commands:
-
-`npm install`  
-`npm run dev`
-
-This will spin up a server running your Vue app on your local machine. Ctrl+click or navigate to the URL shown in the terminal to view your page, live updates, and the Vue debugger.
-
-## Rip out the examples!
-
-If you are using this template for coursework, ***remove the provided example code*** once you are ready. This includes the example messages, component, HTML templates, and CSS. I want to see your original work, not my starter code! It's just there as a reminder for structure and syntax.
-
-All of your Vue coding will be done in the `src` folder, but remember to give your page a real title in `index.html`, found in the `vue-app` root folder.
+  My game is going to be inspired by the mobile game “Postknight”, where you’re a knight that is in charge of delivering mail. There will be 3 main tabs: The Character tab, the Delivery tab, and the Results tab. The main draw of the game will be building your character over the course of several Delivery missions, using the armor, weapons, and skills you acquire to gradually increase the length and scale of your deliveries.
+	The Character tab is where you can equip your character with a weapon, an armor, and up to three charms that can boost different attributes. You can also allocate your stats across categories like strength, magic, hp, and defense. There should be enough unique gear that interacts with the stats in enough unique ways to create several character builds, each of which can get the job done
+	The Delivery tab is where you can take delivery missions to progress your character. These missions have little to no story, and mostly consist of your character heading to their destination, occasionally interrupted by automatic monster battles with sets of monsters around your level. If your character is defeated by a monster, you’re booted back to the Character tab as it was before you started the mission.
+	The Results tab will report what little story there is for each mission, as well as what you got from the monsters and for completing the mission itself. Monster drops are completely dependent on the random monsters encountered, so there can be some excitement to encountering specific monsters, knowing they might drop gear to improve your build. Most missions also reward you with serviceable gear that can resolve into an all-rounder build, in case monster drops haven’t been kind to the player.
+	The game will progress over 3 stages of increasing difficulty. Mission selection has no influence on difficulty, only which stage you are in when taking the mission. When you reach the third stage, the final mission will be unlocked, and you clear that to beat the game. You’re intended to reach the apex of your intended strength in one stage before moving onto the next, but they are unlocked once your character reaches certain levels. You can decide to move on to the next stage whenever, and can return to any lower stages if you feel you made the jump prematurely. Each stage unlocks one of the 3 charm slots, giving an additional sense of progression.
+	I think this game would be very compatible with Vue states because of its compartmentalization. The main thing to keep track of is what stage the player is in. Monsters, their drops, and mission rewards can all be determined from that. Then there’s merely the challenge of designing combat, which I think can work similarly to Candybox: just decreasing health bars that vary based on your stats. Overall, this project will be a challenge of developing robust systems that work under all manner of interactions, and of tracking lots of constantly changing data.
