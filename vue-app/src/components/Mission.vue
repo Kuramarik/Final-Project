@@ -41,7 +41,7 @@ export default{
 
 <template>
     <!-- Mission progress bar that aligns with length -->
-     <button @click="startMission()"></button>
+     <button @click="startMission()">Start Mission</button>
      <p><<span v-for="i in this.progress">-</span>
      <span v-for="i in this.length-this.progress">&nbsp;</span>></p>
 </template>
