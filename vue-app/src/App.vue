@@ -2,12 +2,14 @@
 import ExampleComponent from './components/ExampleComponent.vue'
 import Character from './components/Character.vue'
 import Mission from './components/Mission.vue'
+import MissionSelect from './components/MissionSelect.vue'
 
 export default {
   components: {
     ExampleComponent,
     Character,
-    Mission
+    Mission,
+    MissionSelect
   },
   data() {
     return {
@@ -35,6 +37,7 @@ export default {
   <main>
     <ExampleComponent :paragraph="content"/>
     <Character />
+    <MissionSelect />
     <Mission />
   </main>
 
