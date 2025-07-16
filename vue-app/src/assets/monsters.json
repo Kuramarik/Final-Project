@@ -1,11 +1,14 @@
 [
     {
-        "name":"slime"
+        "name":"slime",
+        "levels":1
     },
     {
-        "name":"skeleton"
+        "name":"skeleton",
+        "levels":1
     },
     {
-        "name":"golem"
+        "name":"golem",
+        "levels":2
     }
 ]

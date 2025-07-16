@@ -1,8 +1,8 @@
 <script>
-import Mission from './Mission.vue'
+import Quest from './Mission.vue'
 export default{
     components:{
-        Mission
+        Mission:Quest
     },
     data(){
         return{
@@ -26,9 +26,12 @@ export default{
     methods:{
         selectMission(mission){
             console.log(mission)
-            this.missionList=this.missionList.filter(other=>other.name!=mission.name
-            )
             this.selectedMission=mission
+        },
+        updateList(extract){
+            console.log(extract)
+            this.missionList=this.missionList.filter(other=>other.name!=extract.name
+            )
         }
     }
 }
