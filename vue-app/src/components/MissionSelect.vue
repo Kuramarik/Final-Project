@@ -27,6 +27,7 @@ export default{
         selectMission(mission){
             console.log(mission)
             this.selectedMission=mission
+            this.$refs.missionData.inProgress=false
         },
         updateList(extract){
             console.log(extract)
@@ -47,7 +48,7 @@ export default{
             </div>
         </div>
         <div class="border">
-            <Mission v-if="this.selectedMission" :self="this.selectedMission" />
+            <Mission v-if="this.selectedMission" ref="missionData" :self="this.selectedMission" @mission-started="updateList" />
         </div>
     </div>
 </template>

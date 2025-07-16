@@ -37,7 +37,7 @@ export default {
   <main>
     <ExampleComponent :paragraph="content"/>
     <Character />
-    <MissionSelect @mission-started="updateList"/>
+    <MissionSelect />
   </main>
 
   <footer>

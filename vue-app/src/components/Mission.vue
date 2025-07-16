@@ -26,11 +26,12 @@ export default{
     },
     startMission(){
         let timeSinceEncounter =0;
-        this.$emit('mission-started', self)
+        this.inProgress=true
+        this.$emit('mission-started', this.self)
         for(let i=0; i<this.self.length; i++){
             this.triggerEncounter()
         }
-        console.log(this.levelGained)
+        //this.$emit('mission-ended', this.self)
         console.log(this.monstersDefeated)
         //trigger the results tab and reset selectedMission on mission complete
         /*while(this.progress<this.self.length){
