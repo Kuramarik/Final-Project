@@ -14,7 +14,6 @@ export default{
     },
     methods: {
         modifyStats(icon, stat){
-            //console.log(this.baseStats[stat])
             if(icon=='+'){
                 this.baseStats[stat]++
                 this.allocLevel--
