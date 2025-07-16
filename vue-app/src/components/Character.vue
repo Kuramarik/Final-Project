@@ -29,7 +29,6 @@ export default{
 </script>
 
 <template>
-    <!-- Stats with + and - buttons -->
      <ul>Character Stats - Level {{this.level}}. You have {{ this.allocLevel }} points
         <li>attack:<br>
             <button v-if="this.baseStats.attack>1" @click="modifyStats('-', 'attack')">-</button>{{ this.baseStats.attack }}<button v-if="this.allocLevel>0" @click="modifyStats('+', 'attack')">+</button>
