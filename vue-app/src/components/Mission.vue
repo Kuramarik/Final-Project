@@ -14,7 +14,7 @@ export default{
    },
    methods: {
     triggerEncounter(){
-        this.currentMonster=monsters[Math.random()*this.monsters.length]
+        this.currentMonster=this.monsters[Math.floor(Math.random()*this.monsters.length)]
         console.log(this.currentMonster)
         /* add a monster to the defeated list*/
     },
