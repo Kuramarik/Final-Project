@@ -26,6 +26,8 @@ export default{
     methods:{
         selectMission(mission){
             console.log(mission)
+            this.missionList=this.missionList.filter(other=>other.name!=mission.name
+            )
             this.selectedMission=mission
         }
     }
