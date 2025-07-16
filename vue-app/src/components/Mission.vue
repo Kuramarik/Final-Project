@@ -8,11 +8,11 @@ export default{
     startMission, begin a timer based on the length variable of the mission.
     triggerEncounter, called randomly during the timer of startMission
     }*/
+   props:['monstersDefeated'],
    data(){
     return{
         length:6,
         progress:0,
-        monstersDefeated:[]
     }
    },
    methods: {
