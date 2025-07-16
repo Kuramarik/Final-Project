@@ -38,7 +38,6 @@ export default {
     <ExampleComponent :paragraph="content"/>
     <Character />
     <MissionSelect />
-    <Mission />
   </main>
 
   <footer>
