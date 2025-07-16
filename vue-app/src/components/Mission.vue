@@ -21,7 +21,7 @@ export default{
     },
     startMission(){
         let timeSinceEncounter =0;
-        for(i=0; i<this.length; i++){
+        for(let i=0; i<this.length; i++){
             this.triggerEncounter()
         }
         /*while(this.progress<this.length){
