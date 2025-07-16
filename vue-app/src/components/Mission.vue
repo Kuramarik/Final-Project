@@ -15,7 +15,7 @@ export default{
    methods: {
     triggerEncounter(){
         this.currentMonster=this.monsters[Math.floor(Math.random()*this.monsters.length)]
-        console.log(this.currentMonster)
+        this.monstersDefeated.push(this.currentMonster)
         /* add a monster to the defeated list*/
     },
     startMission(){
@@ -48,6 +48,9 @@ export default{
      <button @click="startMission()">Start Mission</button>
      <p><<span v-for="i in this.progress">-</span>
      <span v-for="i in this.self.length-this.progress">&nbsp;</span>></p>
+     <br>
+     <strong>monsters defeated:</strong>
+     <p>[<span v-for="monster in this.monstersDefeated">&nbsp;{{ monster.name }}&nbsp;</span>]</p>
 </template>
 
 <style></style>

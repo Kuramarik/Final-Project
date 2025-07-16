@@ -13,11 +13,11 @@ export default{
                 },
                 {
                     name:"mission B",
-                    length:50
+                    length:5
                 },
                 {
                     name:"mission C",
-                    length:100
+                    length:6
                 }
             ],
             selectedMission:null
