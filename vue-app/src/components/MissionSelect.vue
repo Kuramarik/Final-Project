@@ -1,13 +1,5 @@
 <script>
 import Mission from './Mission.vue'
-    /*data {
-    missionList objects
-    selectedMission (starts null)
-    }
-    methods:{
-    
-    }*/
-
 export default{
     components:{
         Mission
@@ -50,10 +42,10 @@ export default{
             </div>
         </div>
         <div class="border">
+            <!-- For some reason, self does not update even when this.selectedMission changes -->
             <Mission v-if="this.selectedMission" :self="this.selectedMission" />
         </div>
     </div>
-    <!-- List of missions, displaying Mission.vue when one is chosen as selected -->
 </template>
 
 <style>
@@ -69,5 +61,4 @@ export default{
     flex-grow: 1;
     padding:10px
 }
-    /* use flexbox to put the list on the left and mission on the right */
 </style>
