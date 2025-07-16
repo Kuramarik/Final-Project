@@ -3,8 +3,7 @@ export default{
    props:['self'],
    data(){
     return{
-        length:this.self.length,
-        progress:0,
+        progress:0
         /* currentMonster */
     }
    },
@@ -15,9 +14,9 @@ export default{
         while loop through the combat*/
     },
     startMission(){
-        console.log(this.length)
+        console.log(this.self.length)
         let timeSinceEncounter =0;
-        for(let i=0; i<this.length; i++){
+        for(let i=0; i<this.self.length; i++){
             this.triggerEncounter()
         }
         /*while(this.progress<this.length){
@@ -42,7 +41,7 @@ export default{
 <template>
      <button @click="startMission()">Start Mission</button>
      <p><<span v-for="i in this.progress">-</span>
-     <span v-for="i in this.length-this.progress">&nbsp;</span>></p>
+     <span v-for="i in this.self.length-this.progress">&nbsp;</span>></p>
 </template>
 
 <style></style>

@@ -42,7 +42,6 @@ export default{
             </div>
         </div>
         <div class="border">
-            <!-- For some reason, self does not update even when this.selectedMission changes -->
             <Mission v-if="this.selectedMission" :self="this.selectedMission" />
         </div>
     </div>
