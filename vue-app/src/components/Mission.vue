@@ -1,17 +1,22 @@
 <script>
+import monsterJson from '../assets/monsters.json'
+
 export default{
    props:['self'],
    data(){
     return{
-        progress:0
-        /* currentMonster */
+        progress:0,
+        monsters:monsterJson,
+        monstersDefeated:[],
+        currentMonster:null
+        /* monsters defeated list */
     }
    },
    methods: {
     triggerEncounter(){
-        console.log("enemy encounter")
-        /* set currentMonster 
-        while loop through the combat*/
+        this.currentMonster=monsters[Math.random()*this.monsters.length]
+        console.log(this.currentMonster)
+        /* add a monster to the defeated list*/
     },
     startMission(){
         console.log(this.self.length)
@@ -19,7 +24,8 @@ export default{
         for(let i=0; i<this.self.length; i++){
             this.triggerEncounter()
         }
-        /*while(this.progress<this.length){
+        //trigger the results tab and reset selectedMission on mission complete
+        /*while(this.progress<this.self.length){
             setTimeout(()=>{
                 this.progress+=1
                 console.log(this.progress)
