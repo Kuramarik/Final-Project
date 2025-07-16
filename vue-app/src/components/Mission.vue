@@ -10,31 +10,35 @@ export default{
     }*/
    data(){
     return{
-        length:30,
+        length:6,
         progress:0,
         monstersDefeated:[]
     }
    },
    methods: {
+    triggerEncounter(){
+        console.log("enemy encounter")
+    },
     startMission(){
         let timeSinceEncounter =0;
+        for(i=0; i<this.length; i++){
+            this.triggerEncounter()
+        }
         /*while(this.progress<this.length){
             setTimeout(()=>{
                 this.progress+=1
                 console.log(this.progress)
-            }, 1000)
-            if(timeSinceEncounter>5){
-                if(Math.random()<0.2){
-                    this.triggerEncounter()
-                    timeSinceEncounter=0;
+                if(timeSinceEncounter>5){
+                    if(Math.random()<0.2){
+                        console.log("hi")
+                        this.triggerEncounter()
+                        timeSinceEncounter=0;
+                    }
                 }
-            }
-            timeSinceEncounter++;
+                timeSinceEncounter++;
+            }, 1000)
         }*/
     },
-    /*triggerEncounter(){
-        console.log("enemy encounter")
-    }*/
    }
 }
 </script>
