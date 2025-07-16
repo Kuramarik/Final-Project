@@ -8,10 +8,10 @@ export default{
     startMission, begin a timer based on the length variable of the mission.
     triggerEncounter, called randomly during the timer of startMission
     }*/
-   props:['monstersDefeated'],
+   props:['self'],
    data(){
     return{
-        length:6,
+        length:this.self.length,
         progress:0,
     }
    },
@@ -20,6 +20,7 @@ export default{
         console.log("enemy encounter")
     },
     startMission(){
+        console.log(this.length)
         let timeSinceEncounter =0;
         for(let i=0; i<this.length; i++){
             this.triggerEncounter()

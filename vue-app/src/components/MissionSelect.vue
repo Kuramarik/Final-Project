@@ -21,14 +21,20 @@ export default{
                 },
                 {
                     name:"mission B",
-                    length:5
+                    length:50
                 },
                 {
                     name:"mission C",
-                    length:6
+                    length:100
                 }
             ],
             selectedMission:null
+        }
+    },
+    methods:{
+        selectMission(mission){
+            console.log(mission)
+            this.selectedMission=mission
         }
     }
 }
@@ -38,13 +44,13 @@ export default{
     <div class="flex">
         <div class="border">
             <div v-for="mission in this.missionList" class="border">
-                <h3>{{ mission.name }}</h3>
+                <strong>{{ mission.name }}</strong>
                 <p>length: {{ mission.length }}</p>
-                <button>Select</button>
+                <button @click="selectMission(mission)">Select</button>
             </div>
         </div>
         <div class="border">
-            <Mission />
+            <Mission v-if="this.selectedMission" :self="this.selectedMission" />
         </div>
     </div>
     <!-- List of missions, displaying Mission.vue when one is chosen as selected -->
@@ -53,7 +59,7 @@ export default{
 <style>
 .border, .flex {
     border:2px solid black;
-    margin:2px
+    margin:10px
 }
 .flex{
     display: flex;
@@ -61,6 +67,7 @@ export default{
 }
 .border{
     flex-grow: 1;
+    padding:10px
 }
     /* use flexbox to put the list on the left and mission on the right */
 </style>
