@@ -23,9 +23,6 @@ export default{
         let timeSinceEncounter =0;
         this.inProgress=true
         this.$emit('mission-started', this.self)
-        /*for(let i=0; i<this.self.length; i++){
-            this.triggerEncounter()
-        }*/
         //trigger the results tab and reset selectedMission on mission complete
         console.log(this.self)
         function progressBar(progress, self, monsters, currentMonster, monstersDefeated){
@@ -35,13 +32,25 @@ export default{
                 //     if(Math.random()<1){
 
                         currentMonster=monsters[Math.floor(Math.random()*monsters.length)]
-                        /* some code for combat with currentMonster that can be implemented later */
-                        monstersDefeated.push(currentMonster)
-                        charInfo.levelGained +=currentMonster.levels
-                        let randomGear=Math.floor(Math.random()*(currentMonster.gear.length))
-                        console.log(randomGear)
-                        charInfo.newGear.push(currentMonster.gear[randomGear].name)
-                        currentMonster=null
+                        function triggerCombat(){
+                            setTimeout(()=>{
+                                /* get charInfo.totalStats
+                                monster hp -= player attack
+                                player health -= monster attack-player defense
+                                if the player is at 0 health, alert game over*/
+                                if(currentMonster.stats.hp==0){
+                                    monstersDefeated.push(currentMonster)
+                                    charInfo.levelGained +=currentMonster.levels
+                                    let randomGear=Math.floor(Math.random()*(currentMonster.gear.length))
+                                    charInfo.newGear.push(currentMonster.gear[randomGear].name)
+                                    currentMonster=null
+                                    return
+                                }
+                                else{
+                                    triggerCombat()
+                                }
+                            }, 1000)
+                        }
 
                 //         timeSinceEncounter=0;
                 //     }
