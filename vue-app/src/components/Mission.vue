@@ -1,6 +1,7 @@
 <script>
 import monsterJson from '../assets/monsters.json'
 import Character from './Character.vue'
+import {charInfo} from './charInfo.js'
 
 export default{
    props:['self'],
@@ -13,7 +14,7 @@ export default{
         currentMonster:null,
         progress:0,
         monstersDefeated:[],
-        levelGained:0,
+        charInfo,
         inProgress:false
     }
    },
@@ -22,7 +23,7 @@ export default{
         this.currentMonster=this.monsters[Math.floor(Math.random()*this.monsters.length)]
         /* some code for combat with currentMonster that can be implemented later */
         this.monstersDefeated.push(this.currentMonster)
-        this.levelGained +=this.currentMonster.levels
+        charInfo.levelGained +=this.currentMonster.levels
         //console.log(Hero.level)
     },
     startMission(){
@@ -34,8 +35,9 @@ export default{
         }
         //this.$emit('mission-ended', this.self)
         //trigger the results tab and reset selectedMission on mission complete
-        console.log(this.levelGained)
-        console.log(this.monstersDefeated)
+        charInfo.finished=true
+        //console.log(charInfo.levelGained)
+        //console.log(this.monstersDefeated)
         /*while(this.progress<this.self.length){
             setTimeout(()=>{
                 this.progress+=1

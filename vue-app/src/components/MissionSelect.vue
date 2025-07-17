@@ -1,5 +1,7 @@
 <script>
 import Quest from './Mission.vue'
+import {charInfo} from './charInfo.js'
+
 export default{
     components:{
         Mission:Quest
@@ -20,7 +22,8 @@ export default{
                     length:6
                 }
             ],
-            selectedMission:null
+            selectedMission:null,
+            charInfo
         }
     },
     methods:{
@@ -28,10 +31,11 @@ export default{
             this.selectedMission=mission
             this.$refs.missionData.progress = 0
             this.$refs.missionData.monstersDefeated=[]
-            this.$refs.missionData.levelGained=0
+            charInfo.levelGained=0
             this.$refs.missionData.inProgress=false
         },
         updateList(extract){
+            charInfo.finished=false
             this.missionList=this.missionList.filter(other=>other.name!=extract.name
             )
         }

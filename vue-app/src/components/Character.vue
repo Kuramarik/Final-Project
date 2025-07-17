@@ -1,5 +1,4 @@
 <script>
-import {reactive} from 'vue'
 import {charInfo} from './charInfo.js'
 
 export default{

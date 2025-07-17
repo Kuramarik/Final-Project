@@ -1,14 +1,17 @@
 [
     {
         "name":"slime",
-        "levels":1
+        "levels":1,
+        "gear":"mage's pendant"
     },
     {
         "name":"skeleton",
-        "levels":1
+        "levels":1,
+        "gear":["bonemail", "bone arrow"]
     },
     {
         "name":"golem",
-        "levels":2
+        "levels":2,
+        "gear":["stone slate", "mana core"]
     }
 ]
