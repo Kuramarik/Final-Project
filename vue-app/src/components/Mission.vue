@@ -24,6 +24,7 @@ export default{
         /* some code for combat with currentMonster that can be implemented later */
         this.monstersDefeated.push(this.currentMonster)
         charInfo.levelGained +=this.currentMonster.levels
+        charInfo.newGear.push()
         //console.log(Hero.level)
     },
     startMission(){
@@ -36,8 +37,6 @@ export default{
         //this.$emit('mission-ended', this.self)
         //trigger the results tab and reset selectedMission on mission complete
         charInfo.finished=true
-        //console.log(charInfo.levelGained)
-        //console.log(this.monstersDefeated)
         /*while(this.progress<this.self.length){
             setTimeout(()=>{
                 this.progress+=1

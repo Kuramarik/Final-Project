@@ -10,5 +10,7 @@ export const charInfo=reactive({
         defense:1,
         hp:10
     },
+    inventory:[],
+    newGear:[],
     finished:false
 })

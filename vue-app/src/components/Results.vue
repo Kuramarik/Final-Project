@@ -6,6 +6,14 @@ export default{
         return{
             charInfo
         }
+    },
+    watch: {
+        'charInfo.finished'(newValue){
+            if(newValue){
+                charInfo.level+=charInfo.levelGained
+                charInfo.allocLevel+=charInfo.levelGained
+            }
+        }
     }
 }
 /* Access level and allocLevel from Character.vue
