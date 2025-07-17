@@ -2,16 +2,46 @@
     {
         "name":"slime",
         "levels":1,
-        "gear":"mage's pendant"
+        "stats":{
+            "attack":2,
+            "hp":20
+        },
+        "gear":[
+            {
+                "name":"mage's pendant"
+            }
+        ]
     },
     {
         "name":"skeleton",
         "levels":1,
-        "gear":["bonemail", "bone arrow"]
+        "stats":{
+            "attack":5,
+            "hp":15
+        },
+        "gear":[
+            {
+                "name":"bonemail"
+            },
+            {
+                "name":"bonearrow"
+            }
+        ]
     },
     {
         "name":"golem",
         "levels":2,
-        "gear":["stone slate", "mana core"]
+        "stats":{
+            "attack":6,
+            "hp":30
+        },
+        "gear":[
+            {
+                "name":"stone slate"
+            },
+            {
+                "name":"mana core"
+            }
+        ]
     }
 ]

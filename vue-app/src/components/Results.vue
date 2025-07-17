@@ -23,12 +23,13 @@ data{
 } */
 </script>
 
-<template v-if="charInfo.finished">
-    <p>you gained {{ charInfo.levelGained }} levels</p>
-    <p>New Gear!
-        <br>
-        <span v-for="piece of charInfo.newGear">{{ piece }}</span>
-    </p>
+<template>
+    <div v-if="charInfo.finished">
+        <p>you gained {{ charInfo.levelGained }} levels</p>
+        <ul>New Gear!
+            <li v-for="piece of charInfo.newGear">{{ piece }}</li>
+        </ul>
+    </div>
 <!-- You gained X levels
  Give a list of monstersDefeated, different after each mission
  Display the description of the mission -->
