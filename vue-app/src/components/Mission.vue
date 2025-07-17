@@ -34,6 +34,13 @@ export default{
                         currentMonster=monsters[Math.floor(Math.random()*monsters.length)]
                         function triggerCombat(){
                             setTimeout(()=>{
+                                currentMonster.stats.hp -= charInfo.totalStats.attack
+                                let trudmg = currentMonster.stats.attack-charInfo.totalStats.defense
+                                if(trudmg<0){ trudmg=0 }
+                                charInfo.totalStats.hp -= trudmg
+                                if(charInfo.totalStats.hp==0){
+                                    alert("game over")
+                                }
                                 /* get charInfo.totalStats
                                 monster hp -= player attack
                                 player health -= monster attack-player defense
@@ -78,8 +85,17 @@ export default{
         {{ this.progress }}/{{ this.self.length }}
     </p>
     <div class="flex">
-        <div class="border"></div>
-        <div class="border" v-if="currentMonster"></div>
+        <div class="border"><ul>Player
+            <li>health:{{ charInfo.totalStats.hp }}</li>
+            <li>attack:{{ charInfo.totalStats.attack }}</li>
+            <li>defense:{{ charInfo.totalStats.defense }}</li>
+        </ul></div>
+        <div class="border" v-if="currentMonster">
+            <ul>
+                <li>health:{{ currentMonster.stats.hp }}</li>
+                <li>attack:{{ currentMonster.stats.attack }}</li>
+            </ul>
+        </div>
     </div>
      <br>
      <strong>monsters defeated:</strong>

@@ -6,7 +6,11 @@ export const charInfo=reactive({
     levelGained:0,
     baseStats:{
         attack:1,
-        magic:1,
+        defense:1,
+        hp:10
+    },
+    totalStats:{
+        attack:1,
         defense:1,
         hp:10
     },
