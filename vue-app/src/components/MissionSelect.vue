@@ -11,15 +11,15 @@ export default{
             missionList:[
                 {
                     name:"mission A",
-                    length:3
+                    length:15
                 },
                 {
                     name:"mission B",
-                    length:5
+                    length:25
                 },
                 {
                     name:"mission C",
-                    length:6
+                    length:30
                 }
             ],
             selectedMission:null,

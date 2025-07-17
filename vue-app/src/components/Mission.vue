@@ -31,26 +31,25 @@ export default{
         let timeSinceEncounter =0;
         this.inProgress=true
         this.$emit('mission-started', this.self)
-        for(let i=0; i<this.self.length; i++){
+        /*for(let i=0; i<this.self.length; i++){
             this.triggerEncounter()
-        }
+        }*/
         //this.$emit('mission-ended', this.self)
         //trigger the results tab and reset selectedMission on mission complete
-        charInfo.finished=true
-        /*while(this.progress<this.self.length){
+        while(this.progress<this.self.length){
             setTimeout(()=>{
                 this.progress+=1
                 console.log(this.progress)
                 if(timeSinceEncounter>5){
                     if(Math.random()<0.2){
-                        console.log("hi")
                         this.triggerEncounter()
                         timeSinceEncounter=0;
                     }
                 }
                 timeSinceEncounter++;
             }, 1000)
-        }*/
+        }
+       charInfo.finished=true
     },
    }
 }
