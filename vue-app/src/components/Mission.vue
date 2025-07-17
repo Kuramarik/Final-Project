@@ -20,6 +20,7 @@ export default{
    },
    methods: {
     triggerEncounter(){
+        //const [useprogress, setprogress] = useprogress({})
         this.currentMonster=this.monsters[Math.floor(Math.random()*this.monsters.length)]
         /* some code for combat with currentMonster that can be implemented later */
         this.monstersDefeated.push(this.currentMonster)
@@ -47,7 +48,7 @@ export default{
                         /* some code for combat with currentMonster that can be implemented later */
                         monstersDefeated.push(currentMonster)
                         charInfo.levelGained +=currentMonster.levels
-                        charInfo.newGear.push()
+                        charInfo.newGear.push(currentMonster.gear[Math.random()*currentMonster.gear.length])
 
                 //         timeSinceEncounter=0;
                 //     }
@@ -69,8 +70,11 @@ export default{
 
 <template>
      <button @click="startMission()" v-if="!inProgress">Start Mission</button>
-     <p><<span v-for="i in this.progress">-</span>
-     <span v-for="i in this.self.length-this.progress">&nbsp;</span>></p>
+     <p>
+        <!-- <<span v-for="i of this.progress">-</span>
+        <span v-for="j of this.self.length-this.progress">&nbsp;</span>> -->
+        {{ this.progress }}/{{ this.self.length }}
+    </p>
      <br>
      <strong>monsters defeated:</strong>
      <p>[<span v-for="monster in this.monstersDefeated">&nbsp;{{ monster.name }}&nbsp;</span>]</p>
