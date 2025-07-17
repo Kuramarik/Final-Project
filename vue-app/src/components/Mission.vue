@@ -24,15 +24,16 @@ export default{
         this.inProgress=true
         this.$emit('mission-started', this.self)
         //trigger the results tab and reset selectedMission on mission complete
-        console.log(this.self)
         function progressBar(progress, self, monsters, currentMonster, monstersDefeated){
             setTimeout(()=>{
                 progress+=1
                 // if(timeSinceEncounter>1){
                 //     if(Math.random()<1){
 
+                //Do something about the setTimeouts running simultaneously
                         currentMonster=monsters[Math.floor(Math.random()*monsters.length)]
                         function triggerCombat(){
+                            console.log(currentMonster)
                             setTimeout(()=>{
                                 currentMonster.stats.hp -= charInfo.totalStats.attack
                                 let trudmg = currentMonster.stats.attack-charInfo.totalStats.defense
@@ -40,6 +41,7 @@ export default{
                                 charInfo.totalStats.hp -= trudmg
                                 if(charInfo.totalStats.hp==0){
                                     alert("game over")
+                                    return
                                 }
                                 /* get charInfo.totalStats
                                 monster hp -= player attack
@@ -51,6 +53,7 @@ export default{
                                     let randomGear=Math.floor(Math.random()*(currentMonster.gear.length))
                                     charInfo.newGear.push(currentMonster.gear[randomGear].name)
                                     currentMonster=null
+                                    console.log("victory!")
                                     return
                                 }
                                 else{
@@ -58,6 +61,7 @@ export default{
                                 }
                             }, 1000)
                         }
+                        triggerCombat()
 
                 //         timeSinceEncounter=0;
                 //     }
