@@ -29,13 +29,13 @@ export default{
     methods:{
         selectMission(mission){
             this.selectedMission=mission
+            charInfo.finished=false
             this.$refs.missionData.progress = 0
             this.$refs.missionData.monstersDefeated=[]
             charInfo.levelGained=0
             this.$refs.missionData.inProgress=false
         },
         updateList(extract){
-            charInfo.finished=false
             this.missionList=this.missionList.filter(other=>other.name!=extract.name
             )
         }

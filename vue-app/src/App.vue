@@ -3,13 +3,15 @@ import ExampleComponent from './components/ExampleComponent.vue'
 import Character from './components/Character.vue'
 import Mission from './components/Mission.vue'
 import MissionSelect from './components/MissionSelect.vue'
+import Results from './components/Results.vue'
 
 export default {
   components: {
     ExampleComponent,
     Character,
     Mission,
-    MissionSelect
+    MissionSelect,
+    Results
   },
   data() {
     return {
@@ -38,6 +40,7 @@ export default {
     <ExampleComponent :paragraph="content"/>
     <Character />
     <MissionSelect />
+    <Results />
   </main>
 
   <footer>
