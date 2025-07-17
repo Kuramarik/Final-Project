@@ -34,22 +34,34 @@ export default{
         /*for(let i=0; i<this.self.length; i++){
             this.triggerEncounter()
         }*/
-        //this.$emit('mission-ended', this.self)
         //trigger the results tab and reset selectedMission on mission complete
-        while(this.progress<this.self.length){
+        console.log(this.self)
+        function progressBar(progress, self, monsters, currentMonster, monstersDefeated){
             setTimeout(()=>{
-                this.progress+=1
-                console.log(this.progress)
-                if(timeSinceEncounter>5){
-                    if(Math.random()<0.2){
-                        this.triggerEncounter()
-                        timeSinceEncounter=0;
-                    }
-                }
+                progress+=1
+                console.log(progress)
+                // if(timeSinceEncounter>1){
+                //     if(Math.random()<1){
+
+                        currentMonster=monsters[Math.floor(Math.random()*monsters.length)]
+                        /* some code for combat with currentMonster that can be implemented later */
+                        monstersDefeated.push(currentMonster)
+                        charInfo.levelGained +=currentMonster.levels
+                        charInfo.newGear.push()
+
+                //         timeSinceEncounter=0;
+                //     }
+                // }
                 timeSinceEncounter++;
+                if(progress<self.length){
+                    progressBar(progress, self, monsters, currentMonster, monstersDefeated)
+                }else{
+                    charInfo.finished=true
+                }
             }, 1000)
+            return
         }
-       charInfo.finished=true
+        progressBar(this.progress, this.self, this.monsters, this.currentMonster, this.monstersDefeated)
     },
    }
 }
