@@ -9,21 +9,21 @@ export default{
    },
    data(){
     return{
-        progress:0,
         monsters:monsterJson,
+        currentMonster:null,
+        progress:0,
         monstersDefeated:[],
         levelGained:0,
-        currentMonster:null,
         inProgress:false
     }
    },
    methods: {
     triggerEncounter(){
         this.currentMonster=this.monsters[Math.floor(Math.random()*this.monsters.length)]
-        /* some code for combat that can be implemented later */
+        /* some code for combat with currentMonster that can be implemented later */
         this.monstersDefeated.push(this.currentMonster)
         this.levelGained +=this.currentMonster.levels
-        console.log(Hero.level)
+        //console.log(Hero.level)
     },
     startMission(){
         let timeSinceEncounter =0;
@@ -34,6 +34,8 @@ export default{
         }
         //this.$emit('mission-ended', this.self)
         //trigger the results tab and reset selectedMission on mission complete
+        console.log(this.levelGained)
+        console.log(this.monstersDefeated)
         /*while(this.progress<this.self.length){
             setTimeout(()=>{
                 this.progress+=1

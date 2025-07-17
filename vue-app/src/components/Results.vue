@@ -1,6 +1,6 @@
 <script>
-/* Move level, allocLevel, totalstats, levelGained, inventory, and monstersDefeated
-into App.vue so they can be accessed by all the children
+/* Access level and allocLevel from Character.vue
+    Take monstersDefeated and levelGained from Mission.vue as well as the mission itself
 data{
 
 } */
