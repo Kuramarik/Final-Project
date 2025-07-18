@@ -25,10 +25,11 @@ export default{
         this.$emit('mission-started', this.self)
         //trigger the results tab and reset selectedMission on mission complete
         function progressBar(progress, self, monsters, currentMonster, monstersDefeated){
+            console.log(progress)
             setTimeout(()=>{
                 progress+=1
-                // if(timeSinceEncounter>1){
-                //     if(Math.random()<1){
+                if(timeSinceEncounter>15){
+                    if(Math.random()<0.8){
 
                 //Do something about the setTimeouts running simultaneously
                         currentMonster=monsters[Math.floor(Math.random()*monsters.length)]
@@ -36,10 +37,11 @@ export default{
                             console.log(currentMonster)
                             setTimeout(()=>{
                                 currentMonster.stats.hp -= charInfo.totalStats.attack
+                                console.log(currentMonster.stats.hp)
                                 let trudmg = currentMonster.stats.attack-charInfo.totalStats.defense
                                 if(trudmg<0){ trudmg=0 }
                                 charInfo.totalStats.hp -= trudmg
-                                if(charInfo.totalStats.hp==0){
+                                if(charInfo.totalStats.hp<=0){
                                     alert("game over")
                                     return
                                 }
@@ -47,7 +49,7 @@ export default{
                                 monster hp -= player attack
                                 player health -= monster attack-player defense
                                 if the player is at 0 health, alert game over*/
-                                if(currentMonster.stats.hp==0){
+                                if(currentMonster.stats.hp<=0){
                                     monstersDefeated.push(currentMonster)
                                     charInfo.levelGained +=currentMonster.levels
                                     let randomGear=Math.floor(Math.random()*(currentMonster.gear.length))
@@ -63,9 +65,9 @@ export default{
                         }
                         triggerCombat()
 
-                //         timeSinceEncounter=0;
-                //     }
-                // }
+                        timeSinceEncounter=0;
+                    }
+                }
                 timeSinceEncounter++;
                 if(progress<self.length){
                     progressBar(progress, self, monsters, currentMonster, monstersDefeated)
@@ -94,10 +96,10 @@ export default{
             <li>attack:{{ charInfo.totalStats.attack }}</li>
             <li>defense:{{ charInfo.totalStats.defense }}</li>
         </ul></div>
-        <div class="border" v-if="currentMonster">
+        <div class="border" v-if="this.currentMonster!=null">
             <ul>
-                <li>health:{{ currentMonster.stats.hp }}</li>
-                <li>attack:{{ currentMonster.stats.attack }}</li>
+                <li>health:{{ this.currentMonster.stats.hp }}</li>
+                <li>attack:{{ this.currentMonster.stats.attack }}</li>
             </ul>
         </div>
     </div>
