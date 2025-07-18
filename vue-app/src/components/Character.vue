@@ -44,12 +44,11 @@ export default{
         </div>
         <div class="border">
             <ul>Inventory:
-                <li v-for="item of charInfo.inventory">{{ item }}</li>
+                <li v-for="item of charInfo.inventory">{{ item }} <button>{{ item.type }}</button></li>
             </ul>
         </div>
      </div>
-     <!-- Display inventory as an array
-      Make the armor, weapon, and charm slots with remove buttons and put equip buttons over the inventory when the slots are empty -->
+     <!-- Make the armor, weapon, and charm slots with remove buttons and put equip buttons over the inventory when the slots are empty -->
 </template>
 
 <style></style>
