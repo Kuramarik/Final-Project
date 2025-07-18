@@ -73,15 +73,14 @@ export default{
                         <button v-if="charInfo.baseStats.hp>10" @click="modifyStats('-', 'hp')">-</button>{{ charInfo.baseStats.hp }}<button v-if="charInfo.allocLevel>0" @click="modifyStats('+', 'hp')">+</button>
                     </li>
                 </ul>
-                <!-- Why is "none equipped" not showing? -->
                 <ul>Equipment:
                     <li>Weapon - <span v-if="this.weapon">{{ this.weapon.name }}<br>
-                    attack+{{ this.weapon.effect }}</span><span v-else>none equipped</span></li>
+                    attack+{{ this.weapon.effect }}<button @click="unequip('weapon')">unequip</button></span><span v-else>none equipped</span></li>
 
                     <li>Armor - <span v-if="this.armor">{{ this.armor.name }}<br>
                     defense+{{ this.armor.effect }}<button @click="unequip('armor')">unequip</button></span><span v-else>none equipped</span></li>
                     <li>Charm - <span v-if="this.charm">{{ this.charm.name }}<br>
-                    {{this.charm.stat}} + {{ this.charm.effect }}</span><span v-else>none equipped</span></li>
+                    {{this.charm.stat}} + {{ this.charm.effect }}<button @click="unequip('charm')">unequip</button></span><span v-else>none equipped</span></li>
                 </ul>
             </div>
         </div>
@@ -99,7 +98,6 @@ export default{
             </ul>
         </div>
     </div>
-     <!-- Make the armor, weapon, and charm slots with remove buttons and put equip buttons over the inventory when the slots are empty -->
 </template>
 
 <style></style>

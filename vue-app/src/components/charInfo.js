@@ -25,6 +25,17 @@ export const charInfo=reactive({
             "type":"armor",
             "effect":5
         },
+        {
+            "name":"bonearrow",
+            "type":"weapon",
+            "effect":4
+        },
+        {
+            "name":"mage's pendant",
+            "type":"charm",
+            "stat":"hp",
+            "effect":5
+        }
     ],
     newGear:[],
     currentMonster:null,
