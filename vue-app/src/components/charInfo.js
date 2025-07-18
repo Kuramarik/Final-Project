@@ -16,5 +16,6 @@ export const charInfo=reactive({
     },
     inventory:[],
     newGear:[],
+    currentMonster:null,
     finished:false
 })

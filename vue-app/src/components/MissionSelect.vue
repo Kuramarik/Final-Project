@@ -60,16 +60,4 @@ export default{
 </template>
 
 <style>
-.border, .flex {
-    margin:10px
-}
-.flex{
-    display: flex;
-    justify-content: space-around;
-}
-.border{
-    border:2px solid black;
-    flex-grow: 1;
-    padding:10px
-}
 </style>

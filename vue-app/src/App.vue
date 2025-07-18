@@ -47,12 +47,28 @@ export default {
   </footer>
 </template>
 
-<style scoped>
-header {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+<style>
+@scope{
+  header {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  h1 {
+    color: #393939;
+  }
 }
 
-h1 {
-  color: #393939;
+.border, .flex {
+    margin:10px
 }
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+.border{
+    border:2px solid black;
+    flex-grow: 1;
+    padding:10px
+}
+
 </style>

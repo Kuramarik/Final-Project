@@ -12,15 +12,11 @@ export default{
             if(newValue){
                 charInfo.level+=charInfo.levelGained
                 charInfo.allocLevel+=charInfo.levelGained
+                charInfo.inventory = charInfo.inventory.concat(charInfo.newGear)
             }
         }
     }
 }
-/* Access level and allocLevel from Character.vue
-    Take monstersDefeated and levelGained from Mission.vue as well as the mission itself
-data{
-
-} */
 </script>
 
 <template>
