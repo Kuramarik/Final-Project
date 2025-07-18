@@ -23,7 +23,7 @@ export default{
     <div v-if="charInfo.finished">
         <p>you gained {{ charInfo.levelGained }} levels</p>
         <ul>New Gear!
-            <li v-for="piece of charInfo.newGear">{{ piece }}</li>
+            <li v-for="piece of charInfo.newGear">{{ piece.name }}</li>
         </ul>
     </div>
 <!-- You gained X levels

@@ -49,7 +49,7 @@ export default{
                                     monstersDefeated.push(charInfo.currentMonster)
                                     charInfo.levelGained +=charInfo.currentMonster.levels
                                     let randomGear=Math.floor(Math.random()*(charInfo.currentMonster.gear.length))
-                                    charInfo.newGear.push(charInfo.currentMonster.gear[randomGear].name)
+                                    charInfo.newGear.push(charInfo.currentMonster.gear[randomGear])
                                     charInfo.currentMonster=null
                                     return
                                 }
