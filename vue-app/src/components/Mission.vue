@@ -67,6 +67,9 @@ export default{
                 }else{
                     if(charInfo.currentMonster==null){
                         charInfo.finished=true
+                        if(charInfo.baseStats.hp>charInfo.totalStats.hp){
+                            charInfo.baseStats.hp=charInfo.totalStats.hp
+                        }
                     }
                     else{
                         progressBar(progress, self, monsters, monstersDefeated)

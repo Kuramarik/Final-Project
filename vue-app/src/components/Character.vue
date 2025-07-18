@@ -5,9 +5,9 @@ export default{
     data() {
         return {
             charInfo,
-            armor:{},
-            weapon:{},
-            charm:{}
+            weapon:null,
+            armor:null,
+            charm:null
         }
     },
     methods: {
@@ -21,6 +21,37 @@ export default{
                 charInfo.baseStats[stat]--
                 charInfo.totalStats[stat]--
                 charInfo.allocLevel++
+            }
+        },
+        equip(type, gear){
+            if(type=='weapon'){
+                this.weapon=gear
+                charInfo.totalStats.attack+=gear.effect
+            }
+            else if(type=='armor'){
+                this.armor=gear
+                charInfo.totalStats.defense+=gear.effect
+            }
+            else if(type=='charm'){
+                this.charm=gear
+                charInfo.totalStats[gear.stat]+=gear.effect
+            }
+        },
+        unequip(type){
+            if(type=='weapon'){
+                charInfo.inventory.push(this.weapon)
+                charInfo.totalStats.attack-=this.weapon.effect
+                this.weapon=null
+            }
+            else if(type=='armor'){
+                charInfo.inventory.push(this.armor)
+                charInfo.totalStats.defense-=this.armor.effect
+                this.armor=null
+            }
+            else if(type=='charm'){
+                charInfo.inventory.push(this.charm)
+                charInfo.totalStats[this.charm.stat]-=this.charm.effect
+                this.charm=null
             }
         }
     }
@@ -44,15 +75,27 @@ export default{
                 </ul>
                 <!-- Why is "none equipped" not showing? -->
                 <ul>Equipment:
-                    <li>Weapon - <span v-if="this.weapon!={}">{{ this.weapon.name }}</span><span v-else>none equipped</span></li>
-                    <li>Armor - <span v-if="this.armor!={}">{{ this.armor.name }}</span><span v-else>none equipped</span></li>
-                    <li>Charm - <span v-if="this.charm!={}">{{ this.charm.name }}</span><span v-else>none equipped</span></li>
+                    <li>Weapon - <span v-if="this.weapon">{{ this.weapon.name }}<br>
+                    attack+{{ this.weapon.effect }}</span><span v-else>none equipped</span></li>
+
+                    <li>Armor - <span v-if="this.armor">{{ this.armor.name }}<br>
+                    defense+{{ this.armor.effect }}<button @click="unequip('armor')">unequip</button></span><span v-else>none equipped</span></li>
+                    <li>Charm - <span v-if="this.charm">{{ this.charm.name }}<br>
+                    {{this.charm.stat}} + {{ this.charm.effect }}</span><span v-else>none equipped</span></li>
                 </ul>
             </div>
         </div>
         <div class="border">
             <ul>Inventory:
-                <li v-for="item of charInfo.inventory">{{ item.name }} <button>{{ item.type }}</button></li>
+                <li v-for="item of charInfo.inventory">{{ item.name }},
+                    <span v-if="item.type=='weapon'">attack+{{ item.effect }}</span>
+                    <span v-else-if="item.type=='armor'">defense+{{ item.effect }}</span>
+                    <span v-else-if="item.type=='charm'">{{item.stat}} + {{ item.effect }}</span>
+                    <span v-else-if="item.type=='consumable'">{{item.stat}} + {{ item.effect }}</span>
+                    <!-- figure out how to keep from removing all of the same item from your inventory at once -->
+                    &nbsp;<button @click="equip(item.type, item); charInfo.inventory=charInfo.inventory.filter((keep)=>keep!=item)" v-if="this[item.type]==null">
+                        {{ item.type }}</button></li>
+                    <!-- (keep, index)=>{index!=charInfo.inventory.findIndex((value)=>{value==item})} -->
             </ul>
         </div>
     </div>

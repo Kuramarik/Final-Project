@@ -9,7 +9,9 @@
         "gear":[
             {
                 "name":"mage's pendant",
-                "type":"charm"
+                "type":"charm",
+                "stat":"hp",
+                "effect":5
             }
         ]
     },
@@ -23,11 +25,13 @@
         "gear":[
             {
                 "name":"bonemail",
-                "type":"armor"
+                "type":"armor",
+                "effect":3
             },
             {
                 "name":"bonearrow",
-                "type":"weapon"
+                "type":"weapon",
+                "effect":4
             }
         ]
     },
@@ -41,11 +45,14 @@
         "gear":[
             {
                 "name":"stone slate",
-                "type":"armor"
+                "type":"armor",
+                "effect":5
             },
             {
                 "name":"mana core",
-                "type":"consumable"
+                "type":"consumable",
+                "stat":"hp",
+                "effect":4
             }
         ]
     }

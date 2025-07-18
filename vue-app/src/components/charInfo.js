@@ -14,7 +14,18 @@ export const charInfo=reactive({
         defense:1,
         hp:10
     },
-    inventory:[],
+    inventory:[
+        {
+            "name":"bonemail",
+            "type":"armor",
+            "effect":3
+        },
+        {
+            "name":"stone slate",
+            "type":"armor",
+            "effect":5
+        },
+    ],
     newGear:[],
     currentMonster:null,
     finished:false
