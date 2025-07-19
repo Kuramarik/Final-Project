@@ -12,7 +12,6 @@ export default{
    data(){
     return{
         monsters:monsterJson,
-        progress:0,
         monstersDefeated:[],
         charInfo,
         inProgress:false
@@ -23,13 +22,13 @@ export default{
         let timeSinceEncounter =0;
         this.inProgress=true
         this.$emit('mission-started', this.self)
-        function progressBar(progress, self, monsters, monstersDefeated){
+        function progressBar(self, monsters, monstersDefeated){
             setTimeout(()=>{
                 if(charInfo.currentMonster==null){
-                    progress+=1
+                    charInfo.progress+=1
                     timeSinceEncounter++;
                 }
-                console.log(progress)
+                console.log(charInfo.progress)
                 if(timeSinceEncounter>5){
                     if(Math.random()<0.3){
                         // Figure out how to reset the currentMonster's stats after defeating them so they don't spawn in already defeated
@@ -62,8 +61,8 @@ export default{
                         timeSinceEncounter=0;
                     }
                 }
-                if(progress<self.length){
-                    progressBar(progress, self, monsters, monstersDefeated)
+                if(charInfo.progress<self.length){
+                    progressBar(self, monsters, monstersDefeated)
                 }else{
                     if(charInfo.currentMonster==null){
                         charInfo.finished=true
@@ -72,13 +71,13 @@ export default{
                         }
                     }
                     else{
-                        progressBar(progress, self, monsters, monstersDefeated)
+                        progressBar(self, monsters, monstersDefeated)
                     }
                 }
             }, 1000)
             return
         }
-        progressBar(this.progress, this.self, this.monsters, this.monstersDefeated)
+        progressBar(this.self, this.monsters, this.monstersDefeated)
     },
    }
 }
@@ -87,11 +86,9 @@ export default{
 <template>
      <button @click="startMission()" v-if="!inProgress">Start Mission</button>
      <p>
-        <!-- <<span v-for="i of this.progress">-</span>
-        <span v-for="j of this.self.length-this.progress">&nbsp;</span>> -->
-
-        <!-- Why is progress staying at zero when it's shown to be updating? -->
-        {{ this.progress }}/{{ this.self.length }}
+        <<span v-for="i of charInfo.progress">-</span>
+        <span v-for="j of this.self.length-charInfo.progress">&nbsp;</span>>
+        <!-- {{ charInfo.progress }}/{{ this.self.length }} -->
     </p>
     <div class="flex">
         <div class="border"><ul>Player

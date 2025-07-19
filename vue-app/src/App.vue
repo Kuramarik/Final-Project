@@ -41,6 +41,9 @@ export default {
     <Character />
     <MissionSelect />
     <Results />
+    <a href="/validate/">validate</a>
+    <br>
+    <a href="/evaluate/">evaluate</a>
   </main>
 
   <footer>

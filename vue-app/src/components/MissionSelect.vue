@@ -30,7 +30,7 @@ export default{
         selectMission(mission){
             this.selectedMission=mission
             charInfo.finished=false
-            this.$refs.missionData.progress = 0
+            charInfo.progress = 0
             this.$refs.missionData.monstersDefeated=[]
             charInfo.levelGained=0
             charInfo.newGear=[]
