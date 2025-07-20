@@ -31,8 +31,7 @@ export default{
                 //console.log(charInfo.progress)
                 if(timeSinceEncounter>5){
                     if(Math.random()<0.3){
-                        // Figure out how to reset the currentMonster's stats after defeating them so they don't spawn in already defeated
-                        charInfo.currentMonster=monsters[Math.floor(Math.random()*monsters.length)]
+                        charInfo.currentMonster=JSON.parse(JSON.stringify(monsters[Math.floor(Math.random()*monsters.length)]))
                         function triggerCombat(){
                             setTimeout(()=>{
                                 charInfo.currentMonster.stats.hp -= charInfo.totalStats.attack
