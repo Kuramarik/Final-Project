@@ -28,7 +28,7 @@ export default{
                     charInfo.progress+=1
                     timeSinceEncounter++;
                 }
-                console.log(charInfo.progress)
+                //console.log(charInfo.progress)
                 if(timeSinceEncounter>5){
                     if(Math.random()<0.3){
                         // Figure out how to reset the currentMonster's stats after defeating them so they don't spawn in already defeated
@@ -86,20 +86,20 @@ export default{
 <template>
      <button @click="startMission()" v-if="!inProgress">Start Mission</button>
      <p>
-        <<span v-for="i of charInfo.progress">-</span>
-        <span v-for="j of this.self.length-charInfo.progress">&nbsp;</span>>
-        <!-- {{ charInfo.progress }}/{{ this.self.length }} -->
+        <!-- <<span v-for="i of charInfo.progress">-</span> -->
+        <!-- <span v-for="j of this.self.length-charInfo.progress">&nbsp;</span>> -->
+        {{ charInfo.progress }}/{{ this.self.length }}
     </p>
     <div class="flex">
         <div class="border"><ul>Player
-            <li>health:{{ charInfo.totalStats.hp }}</li>
-            <li>attack:{{ charInfo.totalStats.attack }}</li>
-            <li>defense:{{ charInfo.totalStats.defense }}</li>
+            <li class="health">health:{{ charInfo.totalStats.hp }}</li>
+            <li class="attack">attack:{{ charInfo.totalStats.attack }}</li>
+            <li class="defense">defense:{{ charInfo.totalStats.defense }}</li>
         </ul></div>
         <div class="border" v-if="charInfo.currentMonster!=null">{{ charInfo.currentMonster.name }}
             <ul>
-                <li>health:{{ charInfo.currentMonster.stats.hp }}</li>
-                <li>attack:{{ charInfo.currentMonster.stats.attack }}</li>
+                <li class="health">health:{{ charInfo.currentMonster.stats.hp }}</li>
+                <li class="attack">attack:{{ charInfo.currentMonster.stats.attack }}</li>
             </ul>
         </div>
     </div>

@@ -61,6 +61,10 @@ export default {
   }
 }
 
+main{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .border, .flex {
     margin:10px
 }
@@ -72,6 +76,22 @@ export default {
     border:2px solid black;
     flex-grow: 1;
     padding:10px
+}
+
+.attack{
+  color:crimson
+}
+
+.defense{
+  color:blue
+}
+
+.health{
+  color:green
+}
+
+.objective{
+  color:rebeccapurple
 }
 
 </style>

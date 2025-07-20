@@ -63,21 +63,21 @@ export default{
         <div class="border">
             <div class="flex">
                 <ul>Character Stats - Level {{charInfo.level}}. You have {{ charInfo.allocLevel }} points
-                    <li>attack:<br>
+                    <li class="attack">attack:<br>
                         <button v-if="charInfo.baseStats.attack>1" @click="modifyStats('-', 'attack')">-</button>{{ charInfo.baseStats.attack }}<button v-if="charInfo.allocLevel>0" @click="modifyStats('+', 'attack')">+</button>
                     </li>
-                    <li>defense:<br>
+                    <li class="defense">defense:<br>
                         <button v-if="charInfo.baseStats.defense>1" @click="modifyStats('-', 'defense')">-</button>{{ charInfo.baseStats.defense }}<button v-if="charInfo.allocLevel>0" @click="modifyStats('+', 'defense')">+</button>
                     </li>
-                    <li>health:<br>
+                    <li class="health">health:<br>
                         <button v-if="charInfo.baseStats.hp>10" @click="modifyStats('-', 'hp')">-</button>{{ charInfo.baseStats.hp }}<button v-if="charInfo.allocLevel>0" @click="modifyStats('+', 'hp')">+</button>
                     </li>
                 </ul>
                 <ul>Equipment:
-                    <li>Weapon - <span v-if="this.weapon">{{ this.weapon.name }}<br>
+                    <li class="attack">Weapon - <span v-if="this.weapon">{{ this.weapon.name }}<br>
                     attack+{{ this.weapon.effect }}<button @click="unequip('weapon')">unequip</button></span><span v-else>none equipped</span></li>
 
-                    <li>Armor - <span v-if="this.armor">{{ this.armor.name }}<br>
+                    <li class="defense">Armor - <span v-if="this.armor">{{ this.armor.name }}<br>
                     defense+{{ this.armor.effect }}<button @click="unequip('armor')">unequip</button></span><span v-else>none equipped</span></li>
                     <li>Charm - <span v-if="this.charm">{{ this.charm.name }}<br>
                     {{this.charm.stat}} + {{ this.charm.effect }}<button @click="unequip('charm')">unequip</button></span><span v-else>none equipped</span></li>
@@ -87,11 +87,11 @@ export default{
         <div class="border">
             <ul>Inventory:
                 <li v-for="item of charInfo.inventory">{{ item.name }},
-                    <span v-if="item.type=='weapon'">attack+{{ item.effect }}</span>
-                    <span v-else-if="item.type=='armor'">defense+{{ item.effect }}</span>
+                    <span v-if="item.type=='weapon'" class="attack">attack+{{ item.effect }}</span>
+                    <span v-else-if="item.type=='armor'" class="defense">defense+{{ item.effect }}</span>
+                    <!-- Find a good way to display the correct stat colors for charms and consumables -->
                     <span v-else-if="item.type=='charm'">{{item.stat}} + {{ item.effect }}</span>
                     <span v-else-if="item.type=='consumable'">{{item.stat}} + {{ item.effect }}</span>
-                    <!-- figure out how to keep from removing all of the same item from your inventory at once -->
                     &nbsp;<button @click="equip(item.type, item); charInfo.inventory=charInfo.inventory.filter((keep)=>keep!=item)" v-if="this[item.type]==null">
                         {{ item.type }}</button></li>
                     <!-- (keep, index)=>{index!=charInfo.inventory.findIndex((value)=>{value==item})} -->
