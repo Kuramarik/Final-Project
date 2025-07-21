@@ -54,6 +54,8 @@ export default{
                 this.charm=null
             }
         }
+    },
+    mounted() {
     }
 }
 </script>
@@ -79,7 +81,7 @@ export default{
 
                     <li class="defense">Armor - <span v-if="this.armor">{{ this.armor.name }}<br>
                     defense+{{ this.armor.effect }}<button @click="unequip('armor')">unequip</button></span><span v-else>none equipped</span></li>
-                    <li>Charm - <span v-if="this.charm">{{ this.charm.name }}<br>
+                    <li>Charm - <span v-if="this.charm" :class="{health:this.charm.stat=='hp', attack:this.charm.stat=='attack', defense:this.charm.stat=='defense'}">{{ this.charm.name }}<br>
                     {{this.charm.stat}} + {{ this.charm.effect }}<button @click="unequip('charm')">unequip</button></span><span v-else>none equipped</span></li>
                 </ul>
             </div>
@@ -90,8 +92,7 @@ export default{
                     <span v-if="item.type=='weapon'" class="attack">attack+{{ item.effect }}</span>
                     <span v-else-if="item.type=='armor'" class="defense">defense+{{ item.effect }}</span>
                     <!-- Find a good way to display the correct stat colors for charms and consumables -->
-                    <span v-else-if="item.type=='charm'">{{item.stat}} + {{ item.effect }}</span>
-                    <span v-else-if="item.type=='consumable'">{{item.stat}} + {{ item.effect }}</span>
+                    <span v-else-if="item.type=='charm'" :class="{health:item.stat=='hp', attack:item.stat=='attack', defense:item.stat=='defense'}">{{item.stat}} + {{ item.effect }}</span>
                     &nbsp;<button @click="equip(item.type, item); charInfo.inventory=charInfo.inventory.filter((keep)=>keep!=item)" v-if="this[item.type]==null">
                         {{ item.type }}</button></li>
                     <!-- (keep, index)=>{index!=charInfo.inventory.findIndex((value)=>{value==item})} -->

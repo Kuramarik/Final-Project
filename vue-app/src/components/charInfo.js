@@ -21,8 +21,9 @@ export const charInfo=reactive({
             "effect":3
         },
         {
-            "name":"stone slate",
-            "type":"armor",
+            "name":"guardian totem",
+            "type":"charm",
+            "stat":"defense",
             "effect":5
         },
         {
