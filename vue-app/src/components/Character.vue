@@ -91,11 +91,9 @@ export default{
                 <li v-for="item of charInfo.inventory">{{ item.name }},
                     <span v-if="item.type=='weapon'" class="attack">attack+{{ item.effect }}</span>
                     <span v-else-if="item.type=='armor'" class="defense">defense+{{ item.effect }}</span>
-                    <!-- Find a good way to display the correct stat colors for charms and consumables -->
                     <span v-else-if="item.type=='charm'" :class="{health:item.stat=='hp', attack:item.stat=='attack', defense:item.stat=='defense'}">{{item.stat}} + {{ item.effect }}</span>
                     &nbsp;<button @click="equip(item.type, item); charInfo.inventory=charInfo.inventory.filter((keep)=>keep!=item)" v-if="this[item.type]==null">
                         {{ item.type }}</button></li>
-                    <!-- (keep, index)=>{index!=charInfo.inventory.findIndex((value)=>{value==item})} -->
             </ul>
         </div>
     </div>

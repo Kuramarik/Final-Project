@@ -26,9 +26,7 @@ export default{
             <li v-for="piece of charInfo.newGear">{{ piece.name }}</li>
         </ul>
     </div>
-<!-- You gained X levels
- Give a list of monstersDefeated, different after each mission
- Display the description of the mission -->
+<!-- Display the description of the mission -->
 </template>
 
 <style></style>

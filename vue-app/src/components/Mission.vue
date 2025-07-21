@@ -28,7 +28,6 @@ export default{
                     charInfo.progress+=1
                     timeSinceEncounter++;
                 }
-                //console.log(charInfo.progress)
                 if(timeSinceEncounter>5){
                     if(Math.random()<0.3){
                         charInfo.currentMonster=JSON.parse(JSON.stringify(monsters[Math.floor(Math.random()*monsters.length)]))
