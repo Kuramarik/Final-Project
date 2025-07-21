@@ -15,28 +15,6 @@ export const charInfo=reactive({
         hp:10
     },
     inventory:[
-        {
-            "name":"bonemail",
-            "type":"armor",
-            "effect":3
-        },
-        {
-            "name":"guardian totem",
-            "type":"charm",
-            "stat":"defense",
-            "effect":5
-        },
-        {
-            "name":"bonearrow",
-            "type":"weapon",
-            "effect":4
-        },
-        {
-            "name":"mage's pendant",
-            "type":"charm",
-            "stat":"hp",
-            "effect":5
-        }
     ],
     newGear:[],
     currentMonster:null,
