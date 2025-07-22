@@ -1,5 +1,5 @@
 <script>
-import ExampleComponent from './components/ExampleComponent.vue'
+import PlayerName from './components/PlayerName.vue'
 import Character from './components/Character.vue'
 import Mission from './components/Mission.vue'
 import MissionSelect from './components/MissionSelect.vue'
@@ -7,7 +7,7 @@ import Results from './components/Results.vue'
 
 export default {
   components: {
-    ExampleComponent,
+    PlayerName,
     Character,
     Mission,
     MissionSelect,
@@ -32,12 +32,11 @@ export default {
 <template>
   <header>
     <h1>
-      {{ heading }}
     </h1>
   </header>
 
   <main>
-    <ExampleComponent :paragraph="content"/>
+    <PlayerName />
     <Character />
     <MissionSelect />
     <Results />

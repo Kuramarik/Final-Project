@@ -19,5 +19,6 @@ export const charInfo=reactive({
     newGear:[],
     currentMonster:null,
     progress:0,
-    finished:false
+    finished:false,
+    name:null
 })
