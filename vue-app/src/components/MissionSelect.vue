@@ -2,6 +2,8 @@
 import Quest from './Mission.vue'
 import {charInfo} from './charInfo.js'
 
+//Fix Shaan's error
+
 export default{
     components:{
         Mission:Quest
