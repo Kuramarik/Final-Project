@@ -38,6 +38,12 @@ export default{
                                 if(trudmg<0){ trudmg=0 }
                                 charInfo.totalStats.hp -= trudmg
                                 if(charInfo.totalStats.hp<=0){
+                                    if(charInfo.name!=null){
+                                        fetch("https://atdpsites.berkeley.edu/aic/f/tracker/?token=01980714-8b54-7b06-9dbb-d633f3876194&game="+charInfo.name+"Quest&player="+charInfo.name+"&won=false")
+                                    }
+                                    else{
+                                        fetch("https://atdpsites.berkeley.edu/aic/f/tracker/?token=01980714-8b54-7b06-9dbb-d633f3876194&game=AnonQuest&player=Anon&won=false")
+                                    }
                                     alert("game over")
                                     window.location.reload()
                                     return
