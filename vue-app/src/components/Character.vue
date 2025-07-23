@@ -64,7 +64,7 @@ export default{
     <div class="flex">
         <div class="border">
             <div class="flex">
-                <ul>Character Stats - Level {{charInfo.level}}. You have {{ charInfo.allocLevel }} points
+                <ul><span v-if="charInfo.name==null">Character</span><span v-else>{{ charInfo.name }}</span> Stats - Level {{charInfo.level}}. You have {{ charInfo.allocLevel }} points
                     <li class="attack">attack:<br>
                         <button v-if="charInfo.baseStats.attack>1" @click="modifyStats('-', 'attack')">-</button>{{ charInfo.baseStats.attack }}<button v-if="charInfo.allocLevel>0" @click="modifyStats('+', 'attack')">+</button>
                     </li>

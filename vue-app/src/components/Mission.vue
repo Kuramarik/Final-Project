@@ -89,7 +89,7 @@ export default{
         {{ charInfo.progress }}/{{ this.self.length }}
     </p>
     <div class="flex">
-        <div class="border"><ul>Player
+        <div class="border"><ul> <span v-if="charInfo.name==null">Character</span><span v-else>{{ charInfo.name }}</span>
             <li class="health">health:{{ charInfo.totalStats.hp }}</li>
             <li class="attack">attack:{{ charInfo.totalStats.attack }}</li>
             <li class="defense">defense:{{ charInfo.totalStats.defense }}</li>

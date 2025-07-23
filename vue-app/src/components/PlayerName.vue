@@ -23,11 +23,11 @@ export default{
 <template>
 <!-- v-if charInfo.name is null, display name submission form
  v-else charInfo.name -->
- <form v-if="charInfo.name==null"><label>Enter your name:<input type="text" :value="entered" @input="e=>{entered=e.target.value}" /></label>
+ <form v-if="charInfo.name==null"><label>Enter your first name:<input type="text" :value="entered" @input="e=>{entered=e.target.value}" /></label>
  <button @click.prevent="()=>{
     setName(entered)
  }">Submit name</button></form>
- <h1>{{ charInfo.name }} Quest</h1>
+ <h1 v-else>{{ charInfo.name }} Quest</h1>
 </template>
 
 <style></style>
