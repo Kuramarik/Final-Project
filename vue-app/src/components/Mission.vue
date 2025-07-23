@@ -83,7 +83,7 @@ export default{
 
 <template>
      <button @click="startMission()" v-if="!inProgress">Start Mission</button>
-     <p><span v-if="inProgress">Mission in Progress: </span>
+     <p><span v-if="!charInfo.finished&&inProgress">Mission in Progress: </span>
         <!-- <<span v-for="i of charInfo.progress">-</span> -->
         <!-- <span v-for="j of this.self.length-charInfo.progress">&nbsp;</span>> -->
         {{ charInfo.progress }}/{{ this.self.length }}

@@ -15,8 +15,7 @@ export default {
   },
   data() {
     return {
-      heading: "",
-      content: "... but the first step is not always simple."
+      reportTo:""
     }
   },
   methods: {
@@ -24,7 +23,8 @@ export default {
   computed: {
   },
   mounted() {
-    this.heading = "Every journey is simply a series of steps..."
+    this.reportTo= fetch("https://atdpsites.berkeley.edu/aic/f/tracker/")
+    console.log(this.reportTo)
   }
 }
 </script>
