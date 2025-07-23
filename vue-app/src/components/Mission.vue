@@ -83,18 +83,18 @@ export default{
 
 <template>
      <button @click="startMission()" v-if="!inProgress">Start Mission</button>
-     <p>
+     <p><span v-if="inProgress">Mission in Progress: </span>
         <!-- <<span v-for="i of charInfo.progress">-</span> -->
         <!-- <span v-for="j of this.self.length-charInfo.progress">&nbsp;</span>> -->
         {{ charInfo.progress }}/{{ this.self.length }}
     </p>
     <div class="flex">
-        <div class="border"><ul> <span v-if="charInfo.name==null">Character</span><span v-else>{{ charInfo.name }}</span>
+        <div class="player"><ul> <span v-if="charInfo.name==null">Character</span><span v-else>{{ charInfo.name }}</span>
             <li class="health">health:{{ charInfo.totalStats.hp }}</li>
             <li class="attack">attack:{{ charInfo.totalStats.attack }}</li>
             <li class="defense">defense:{{ charInfo.totalStats.defense }}</li>
         </ul></div>
-        <div class="border" v-if="charInfo.currentMonster!=null">
+        <div class="monster" v-if="charInfo.currentMonster!=null">
             <ul>{{ charInfo.currentMonster.name }}
                 <li class="health">health:{{ charInfo.currentMonster.stats.hp }}</li>
                 <li class="attack">attack:{{ charInfo.currentMonster.stats.attack }}</li>
@@ -107,4 +107,18 @@ export default{
 </template>
 
 <style>
+.player, .monster{
+    border:2px solid black;
+    flex-grow: 1;
+    padding:10px;
+}
+
+.player{
+    box-shadow: 8px 4px 4px gold;
+    margin-right: 10px;
+}
+
+.monster{
+    box-shadow: 8px 4px 4px rebeccapurple;
+}
 </style>

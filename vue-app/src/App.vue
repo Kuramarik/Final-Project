@@ -74,7 +74,9 @@ main{
 .border{
     border:2px solid black;
     flex-grow: 1;
-    padding:10px
+    padding:10px;
+    box-shadow: 8px 4px 4px gray;
+    border-radius: 15px
 }
 
 .attack{
@@ -87,10 +89,6 @@ main{
 
 .health{
   color:green
-}
-
-.objective{
-  color:rebeccapurple
 }
 
 </style>

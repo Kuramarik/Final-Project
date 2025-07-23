@@ -13,11 +13,13 @@ export default{
                 charInfo.level+=charInfo.levelGained
                 charInfo.allocLevel+=charInfo.levelGained
                 charInfo.inventory = charInfo.inventory.concat(charInfo.newGear)
-                if(charInfo.missionList.length==0&&charInfo.name!=null){
-                    alert("Congratulations "+charInfo.name+"! You won!")
-                }
-                else{
-                    alert("Congratulations! You won!")
+                if(charInfo.missionList.length==0){
+                    if(charInfo.name!=null){
+                        alert("Congratulations "+charInfo.name+"! You won!")
+                    }
+                    else{
+                        alert("Congratulations! You won!")
+                    }
                 }
             }
         }
@@ -26,7 +28,7 @@ export default{
 </script>
 
 <template>
-    <div v-if="charInfo.finished">
+    <div v-if="charInfo.finished" class="border">
         <p>you gained {{ charInfo.levelGained }} levels</p>
         <ul>New Gear!
             <li v-for="piece of charInfo.newGear">{{ piece.name }}</li>
