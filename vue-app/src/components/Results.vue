@@ -13,6 +13,12 @@ export default{
                 charInfo.level+=charInfo.levelGained
                 charInfo.allocLevel+=charInfo.levelGained
                 charInfo.inventory = charInfo.inventory.concat(charInfo.newGear)
+                if(charInfo.missionList.length==0&&charInfo.name!=null){
+                    alert("Congratulations "+charInfo.name+"! You won!")
+                }
+                else{
+                    alert("Congratulations! You won!")
+                }
             }
         }
     }

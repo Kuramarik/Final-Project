@@ -10,22 +10,9 @@ export default{
     },
     data(){
         return{
-            missionList:[
-                {
-                    name:"mission A",
-                    length:15
-                },
-                {
-                    name:"mission B",
-                    length:25
-                },
-                {
-                    name:"mission C",
-                    length:30
-                }
-            ],
             selectedMission:null,
-            charInfo
+            charInfo,
+            isDisabled:false
         }
     },
     methods:{
@@ -39,8 +26,16 @@ export default{
             this.$refs.missionData.inProgress=false
         },
         updateList(extract){
-            this.missionList=this.missionList.filter(other=>other.name!=extract.name
+            charInfo.missionList=charInfo.missionList.filter(other=>other.name!=extract.name
             )
+            this.isDisabled=true
+        }
+    },
+    watch: {
+        'charInfo.finished'(newValue){
+            if(newValue){
+                this.isDisabled=false
+            }
         }
     }
 }
@@ -49,10 +44,10 @@ export default{
 <template>
     <div class="flex">
         <div class="border">
-            <div v-for="mission in this.missionList" class="border">
+            <div v-for="mission in charInfo.missionList" class="border">
                 <strong>{{ mission.name }}</strong>
                 <p>length: {{ mission.length }}</p>
-                <button @click="selectMission(mission)">Select</button>
+                <button @click="selectMission(mission)" :disabled="isDisabled">Select</button>
             </div>
         </div>
         <div class="border">

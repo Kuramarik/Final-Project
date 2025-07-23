@@ -94,8 +94,8 @@ export default{
             <li class="attack">attack:{{ charInfo.totalStats.attack }}</li>
             <li class="defense">defense:{{ charInfo.totalStats.defense }}</li>
         </ul></div>
-        <div class="border" v-if="charInfo.currentMonster!=null">{{ charInfo.currentMonster.name }}
-            <ul>
+        <div class="border" v-if="charInfo.currentMonster!=null">
+            <ul>{{ charInfo.currentMonster.name }}
                 <li class="health">health:{{ charInfo.currentMonster.stats.hp }}</li>
                 <li class="attack">attack:{{ charInfo.currentMonster.stats.attack }}</li>
             </ul>

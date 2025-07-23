@@ -20,5 +20,19 @@ export const charInfo=reactive({
     currentMonster:null,
     progress:0,
     finished:false,
-    name:null
+    name:null,
+    missionList:[
+        {
+            name:"mission A",
+            length:15
+        },
+        {
+            name:"mission B",
+            length:25
+        },
+        {
+            name:"mission C",
+            length:30
+        }
+    ],
 })
