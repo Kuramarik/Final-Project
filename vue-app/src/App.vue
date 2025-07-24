@@ -30,10 +30,6 @@ export default {
 </script>
 
 <template>
-  <header>
-    <h1>
-    </h1>
-  </header>
 
   <main>
     <PlayerName />
